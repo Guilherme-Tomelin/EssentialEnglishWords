@@ -31,6 +31,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app.apps.AppConfig',
     'users.apps.UsersConfig',
+    'rest_framework',
+    'words_api.apps.WordsApiConfig',
 
 ]
 
