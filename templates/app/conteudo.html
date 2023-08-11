@@ -14,7 +14,8 @@
                 <li><a href="/">Início</a></li>
                 <li><a href="/sobre/">Sobre</a></li>
                 <li><a href="/contato/">Contato</a></li>
-                <li><a href="{% url 'logout' %}">Logoutt</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                <li><p>{{ user.username }}</p></li>
             </ul>
         </nav>
         {% for message in messages %}
@@ -25,8 +26,22 @@
     </header>
     <main>
         <div class="section hero">
-            <h1>Conteúdo</h1>
+            <h1>Exercício de Tradução</h1>
             <p>Usuário Logado!</p>
+            <form method="POST" action="{% url 'processa_form' %}">
+                {% csrf_token %}
+                
+                <label for="traducao">Traduza a palavra em inglês abaixo:</label>
+                <h2>{{ palavra_aleatoria.word }}</h2>
+                
+                <label for="traducao">Sua Tradução:</label>
+                <input type="text" id="traducao" name="translationInput" required>
+                
+                <label for="frase">Sua Frase:</label>
+                <input type="text" id="frase" name="sentenceInput" required>
+                
+                <input type="submit" value="Enviar">
+            </form>
         </div>
     </main>
     <footer>
