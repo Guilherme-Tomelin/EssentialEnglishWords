@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essential English Words</title>
+    <link rel="stylesheet" href="{% static 'app/css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Início</a></li>
+                <li><a href="/sobre/">Sobre</a></li>
+                <li><a href="/contato/">Contato</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </nav>
+        {% for message in messages %}
+            <div>
+                <p id="messages">{{message}}</p>
+            </div>
+        {% endfor %}
+    </header>
+    <main>
+        <div class="section hero">
+            <h1>Essential English Words</h1>
+            <p>Aprenda inglês de forma eficaz.</p>
+        </div>
+        
+        <div class="section card-content">
+            <form>
+                <h2>Selecione o tempo que deseja praticar:</h2>
+                <label for="practice-time">Tempo de Prática:</label>
+                <select id="practice-time" name="practice-time">
+                    <option value="10">10 minutos</option>
+                    <option value="20">20 minutos</option>
+                    <option value="30">30 minutos</option>
+                    <option value="60">1 hora</option>
+                    <option value="90">1 hora e 30 minutos</option>
+                </select>
+                <button type="submit">Começar</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Meu Site.</p>
+    </footer>
+</body>
+</html>

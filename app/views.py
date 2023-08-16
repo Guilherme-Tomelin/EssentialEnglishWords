@@ -36,6 +36,10 @@ def processa_form(request):
         pass
     #return HttpResponse(f'Tradução [{translationInput}] Frase [{sentenceInput}]')
 
+def configuracoes(request):
+    return render(request,'app/configuracoes.html')
+
+
 
 def processa_palavra(translationInput):
     print(f'Função processa_palavra {translationInput}')
@@ -51,6 +55,7 @@ def processa_palavra(translationInput):
 
     except Palavra.DoesNotExist:
         return {'palavra_encontrada': False}
+    
 
 
 

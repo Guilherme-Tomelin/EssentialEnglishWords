@@ -55,7 +55,7 @@ def login(request):
         if user is not None:
             auth.login(request, user)
             messages.success(request,f"Olá {name}, Você está logado!")
-            return redirect('conteudo')
+            return redirect('configuracoes')
         else:
             messages.error(request, "Erro ao efetuar login.")
             return redirect('login')
